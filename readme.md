@@ -21,3 +21,13 @@ brew install aws-sam-cli
 sam local invoke CFInvalidationFunction -e events/events.json
 ```
 * Don't forget login OKTA
+
+> Deploy lambda application
+* Update or create your `samconfig.toml`
+  + Please check `samconfig.toml.sample`
+* Run SAM CLI
+```bash
+sam deploy # If you have samconfig.toml
+sma deploy --guided # If you don't have samconfig.toml -> This will generate samconfig.toml
+
+```
