@@ -1,2 +1,2 @@
 from .invalidator import *
-from .distributions import *
+from .list_distribution import *

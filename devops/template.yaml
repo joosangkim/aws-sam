@@ -11,3 +11,6 @@ Resources:
     Properties:
       Handler: main.cf_distributions
       Runtime: python3.9
+      Environment:
+        Variables:
+            DISTRIBUTIONS: E2YF41IFAE1JFI,E2YOAZP0AV74Z0
