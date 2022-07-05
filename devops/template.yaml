@@ -4,13 +4,13 @@ Resources:
   CFInvalidationFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: main.cf_invalidator
+      Handler: main.invalidation
       Runtime: python3.9
   CFShowDistributionFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: main.cf_distributions
+      Handler: main.distributions
       Runtime: python3.9
       Environment:
         Variables:
-            DISTRIBUTIONS: E2YF41IFAE1JFI,E2YOAZP0AV74Z0
+            DISTRIBUTIONS: 123

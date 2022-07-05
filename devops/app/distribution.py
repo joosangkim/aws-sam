@@ -8,7 +8,7 @@ import boto3
 ENV_NAME='DISTRIBUTIONS'
 client = boto3.client('cloudfront')
 
-def list_distributions(event, context):
+def distributions(event, context):
   try:
     result=[]
     targets = set_environment(context)
@@ -20,12 +20,12 @@ def list_distributions(event, context):
       })
     return json.dumps({
       'code': '200',
-      'response': result
+      'message': result,
     })
   except Exception as e:
     return json.dumps({
       'code': '500',
-      'msg': f"Failed to query distribution information: {e}"
+      'error': f"Failed to query distribution information: {e}"
     })
 
 def set_environment(context):

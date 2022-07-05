@@ -1,5 +1,18 @@
 ## GroundX AWS Lambda
 ---
+### Lambda return form protocol
+```json
+{
+  "code": "200",
+  "message": "success message"
+}
+//
+{
+  "code": "500",
+  "message": "fail message"
+}
+```
+
 ### Create Lambda on local Mac
 > Install Mac SAM CLI
 ```bash
