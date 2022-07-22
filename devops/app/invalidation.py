@@ -1,10 +1,11 @@
 import json
+from datetime import datetime
 import boto3
 
 client = boto3.client("cloudfront")
 
 
-def invalidator(event, context):
+def invalidation(event, context):
     try:
         dist = event["distribution"]  # string
         try:
@@ -13,14 +14,14 @@ def invalidator(event, context):
             return json.dumps(
                 {"code": "500", "message": f"Failed to define target path {e}"}
             )
-        cr = event["callerReference"]
+        ts = str(int(datetime.now().timestamp()))
 
         try:
             client.create_invalidation(
                 DistributionId=dist,
                 InvalidationBatch={
                     "Paths": {"Quantity": len(paths), "Items": paths},
-                    "CallerReference": cr,
+                    "CallerReference": ts,
                 },
             )
             return json.dumps({"code": "200", "message": "success"})
